@@ -171,13 +171,14 @@ $.extend(Controller, {
         // => ready
     },
     onfinish: function(event, from, to) {
-        View.showStats({
-            pathLength: PF.Util.pathLength(this.path),
-            timeSpent:  this.timeSpent,
-            operationCount: this.operationCount,
-        });
+        // View.showStats({
+        //     pathLength: PF.Util.pathLength(this.path),
+        //     timeSpent:  this.timeSpent,
+        //     operationCount: this.operationCount,
+        // });
         View.drawPath(this.path);
         // => finished
+alert('Nós expandidos: ' + this.operationCount + ' | Tamanho do caminho: ' + this.path.length + ' | Tempo gasto: ' + this.timeSpent )
     },
     onclear: function(event, from, to) {
         this.clearOperations();
@@ -202,7 +203,7 @@ $.extend(Controller, {
 
     onready: function() {
         console.log('=> ready');
-        
+
         this.setStartPos(3, 5);
         for(let i=0; i < 14; i++){
             this.setWalkableAt(10, 2+i, false);
@@ -213,18 +214,18 @@ $.extend(Controller, {
         }
 
         for(let i=0; i < 8; i++){
-            this.setWalkableAt(12+i, 3*i, false);            
+            this.setWalkableAt(12+i, 3*i, false);
         }
 
         for(let i=0; i < 8; i++){
-            this.setWalkableAt(20-i, 3*i, false);            
+            this.setWalkableAt(20-i, 3*i, false);
         }
 
         for(let i=0; i < 8; i++){
             let a = Math.floor(Math.random() * 20)
-            this.setWalkableAt(a, 3*i, false);            
+            this.setWalkableAt(a, 3*i, false);
         }
-        
+
         this.setButtonStates({
             id: 1,
             text: 'Start Search',
